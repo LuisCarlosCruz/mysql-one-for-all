@@ -3,53 +3,53 @@ CREATE DATABASE IF NOT EXISTS SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE planos (
-	plano_id INT PRIMARY KEY AUTO_INCREMENT,
-    plano VARCHAR(50) NOT NULL,
-    disponivel INT NOT NULL,
-    valor_plano FLOAT NOT NULL
+plano_id INT PRIMARY KEY AUTO_INCREMENT,
+plano VARCHAR(50) NOT NULL,
+disponivel INT NOT NULL,
+valor_plano FLOAT NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE users (
-	user_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    idade INT NOT NULL,
-    plano_id INT NOT NULL,
-    FOREIGN KEY(plano_id) REFERENCES planos (plano_id)
+user_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(50) NOT NULL,
+idade INT NOT NULL,
+plano_id INT NOT NULL,
+FOREIGN KEY(plano_id) REFERENCES planos (plano_id)
 ) engine = InnoDB;
 
 CREATE TABLE artistas (
-	artista_id INT PRIMARY KEY AUTO_INCREMENT,
-    name_artista VARCHAR(50) NOT NULL
+artista_id INT PRIMARY KEY AUTO_INCREMENT,
+name_artista VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE cancoes (
-	cancoes_id INT PRIMARY KEY AUTO_INCREMENT,
-    nome_cancao VARCHAR(50) NOT NULL,
-    album_id INT NOT NULL,
-    FOREIGN KEY (album_id) REFERENCES albuns (album_id)
+cancoes_id INT PRIMARY KEY AUTO_INCREMENT,
+nome_cancao VARCHAR(50) NOT NULL,
+album_id INT NOT NULL,
+FOREIGN KEY (album_id) REFERENCES albuns (album_id)
 ) engine = InnoDB;
 
 CREATE TABLE albuns (
-	album_id INT PRIMARY KEY AUTO_INCREMENT,
-    nome_album VARCHAR(50) NOT NULL,
-    artista_id INT NOT NULL,
-    FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
+album_id INT PRIMARY KEY AUTO_INCREMENT,
+nome_album VARCHAR(50) NOT NULL,
+artista_id INT NOT NULL,
+FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
 );
 
 CREATE TABLE historico (
-    user_id INT NOT NULL,
-    cancoes_id INT NOT NULL,
-    FOREIGN KEY (cancoes_id) REFERENCES cancoes (cancoes_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id),
-    CONSTRAINT PRIMARY KEY (cancoes_id, user_id)
+user_id INT NOT NULL,
+cancoes_id INT NOT NULL,
+FOREIGN KEY (cancoes_id) REFERENCES cancoes (cancoes_id),
+FOREIGN KEY (user_id) REFERENCES users (user_id),
+CONSTRAINT PRIMARY KEY (cancoes_id, user_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguidores (
-    user_id INT NOT NULL,
-    artista_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users (user_id),
-    FOREIGN KEY (artista_id) REFERENCES artistas (artista_id),
-    CONSTRAINT PRIMARY KEY (artista_id, user_id)
+user_id INT NOT NULL,
+artista_id INT NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users (user_id),
+FOREIGN KEY (artista_id) REFERENCES artistas (artista_id),
+CONSTRAINT PRIMARY KEY (artista_id, user_id)
 ) engine = InnoDB;
 
 
@@ -122,30 +122,3 @@ INSERT INTO historico (user_id, cancoes_id)VALUES
 (4, 3),
 (4, 18),
 (4, 11);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
