@@ -22,19 +22,19 @@ artista_id INT PRIMARY KEY AUTO_INCREMENT,
 name_artista VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE cancoes (
-cancoes_id INT PRIMARY KEY AUTO_INCREMENT,
-nome_cancao VARCHAR(50) NOT NULL,
-album_id INT NOT NULL,
-FOREIGN KEY (album_id) REFERENCES albuns (album_id)
-) engine = InnoDB;
-
 CREATE TABLE albuns (
 album_id INT PRIMARY KEY AUTO_INCREMENT,
 nome_album VARCHAR(50) NOT NULL,
 artista_id INT NOT NULL,
 FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
 );
+
+CREATE TABLE cancoes (
+cancoes_id INT PRIMARY KEY AUTO_INCREMENT,
+nome_cancao VARCHAR(50) NOT NULL,
+album_id INT NOT NULL,
+FOREIGN KEY (album_id) REFERENCES albuns (album_id)
+) engine = InnoDB;
 
 CREATE TABLE historico (
 user_id INT NOT NULL,
