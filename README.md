@@ -27,7 +27,7 @@ Esse projeto ***One For All***, você encontrará uma tabela normalizada, e popu
 
 Para cada desafio, foi criado um arquivo SQL e sua solução nele, um arquivo **na pasta raiz do projeto** chamado `desafioN.sql`.
 
-2. O arquivo contém apenas o código SQL do desafio resolvido.
+- O arquivo contém apenas o código SQL do desafio resolvido.
 
 Ex.:
 ```sql
